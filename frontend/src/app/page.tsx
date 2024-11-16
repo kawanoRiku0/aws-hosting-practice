@@ -1,25 +1,11 @@
-type Article = {
-  title: string;
-  content: string;
-};
+import Link from "next/link";
 
-export default async function Home() {
-  const articles = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/articles`
-  ).then((res) => res.json());
-
+export default function Page() {
   return (
     <div>
       <h1>Kawariku AWS Hosting Practice Blog</h1>
-      {articles.map((article: Article) => (
-        <article
-          key={article.title}
-          className="border border-gray-300 rounded-md p-4 mt-4"
-        >
-          <h2>{article.title}</h2>
-          <p>{article.content}</p>
-        </article>
-      ))}
+      <p>ここはHomeページです。</p>
+      <Link href="/articles">記事一覧へ</Link>
     </div>
   );
 }
