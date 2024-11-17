@@ -1,14 +1,12 @@
 package main
 
 import (
-	"log"
 	"net/http"
 	"os"
 	"time"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 )
 
 // Article構造体の定義
@@ -18,12 +16,8 @@ type Article struct {
 }
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
 	router := gin.Default()
+
 	// CORSの設定
 	router.Use(cors.New(cors.Config{
 		// 許可するオリジンを指定
